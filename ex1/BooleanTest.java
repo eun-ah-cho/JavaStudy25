@@ -8,11 +8,11 @@ public class BooleanTest {
 		boolean stop = true ;
 		if (stop) {
 			
-			System.out.println("ÁßÁöÇÕ´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.");
 		}
 		
 		else {
-			System.out.println("ÁøÇàÇÕ´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.");
 		}
 		
 		

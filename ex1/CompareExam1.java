@@ -8,42 +8,42 @@ public class CompareExam1 {
 		
 		boolean bototal = (bo1 >= bo2); 
 		System.out.println(bototal);
-		//booleanÀº Âü,°ÅÁþ ±¸ºÐ°¡´É 
+		//booleanï¿½ï¿½ ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ð°ï¿½ï¿½ï¿½ 
 		
 		boolean hi1 = !true;
-		System.out.println(!hi1 + "ÀÔ´Ï´Ù.");
+		System.out.println(!hi1 + "ï¿½Ô´Ï´ï¿½.");
 		
 		System.out.println("====================");
 		
 		
-		char chr1 = 'A' ; //65 À¯´ÏÄÚµå
+		char chr1 = 'A' ; //65 ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½
 		char chr2 = 'B' ; //66  
 		
 		
-		boolean bototal1 = (chr1 > chr2) ;  // chr1=A=65 °¡ ´õÀÛÀ¸´Ï false 
+		boolean bototal1 = (chr1 > chr2) ;  // chr1=A=65 ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ false 
 		System.out.println(bototal1);
-		//¹®ÀÚ -> À¯´ÏÄÚµå ¼ýÀÚ·Î º¯È¯ÇÏ¿© Âü°ÅÁþ ±¸ºÐ 
+		//ï¿½ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½È¯ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 		
 		char chr3 = '1' ;
 		char chr4 = 1 ; 
 		
 		
-		boolean bototal2 = (chr3 == chr4) ;  //¹®ÀÚ¿Í À¯´ÏÄÚµå ´Ù¸§ 
+		boolean bototal2 = (chr3 == chr4) ;  //ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ ï¿½Ù¸ï¿½ 
 		System.out.println(bototal2);
 	
 		int sum1 = 1 ;
 		double sum2 = 1.0;
 		
 		System.out.println(sum1 == sum2); 
-		// -> sum1ÀÌ 4¹ÙÀÌÆ® ÀÌ°í sum2°¡ 8¹ÙÀÌÆ®¶ó sum1ÀÌ Å« ´õºí(8¹ÙÀÌÆ®)¸¦ ÀÎ½Ä ÇÏ¿© 1->1.0À¸·Îº¯ÇÔ
+		// -> sum1ï¿½ï¿½ 4ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ì°ï¿½ sum2ï¿½ï¿½ 8ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ sum1ï¿½ï¿½ Å« ï¿½ï¿½ï¿½ï¿½(8ï¿½ï¿½ï¿½ï¿½Æ®)ï¿½ï¿½ ï¿½Î½ï¿½ ï¿½Ï¿ï¿½ 1->1.0ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½
 		System.out.println("====================");
 		double dob1 = 0.4;
 		float flo1 = 0.4f;
-		System.out.println(dob1 == flo1); //double°ú floatÀº ºÒÀÏÄ¡ 
+		System.out.println(dob1 == flo1); //doubleï¿½ï¿½ floatï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ 
 		
-		System.out.println((float)dob1 == flo1); //´õºí °­Á¦ float·Î ½ÇÇà ÇÏ¸é ÀÏÄ¡
+		System.out.println((float)dob1 == flo1); //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ floatï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½ ï¿½ï¿½Ä¡
 		System.out.println(dob1 == (double)flo1); 
-		System.out.println(dob1); //´õºí°ª 
+		System.out.println(dob1); //ï¿½ï¿½ï¿½ï¿½ 
 		System.out.println("====================");
 		System.out.println(dob1);
 		System.out.println((float)dob1);
