@@ -24,7 +24,7 @@ public class WhileExam2 {
 			
 			case 1 :  //1번 메뉴로 들어옴. 교직원관리 
 				boolean sawon = true; 
-					while(sawon) {
+					while(sawon) { //case1-while
 						System.out.println("[[[[[교직원 관리메뉴]]]]]");
 						System.out.println("a.교직원등록 ");
 						System.out.println("b.교직원보기 ");
@@ -144,21 +144,52 @@ public class WhileExam2 {
 				}// case2 스위치 종료 
 				
 				}//case2 while 종료 
+					case 3 :
+						boolean jumsu = true; 
+						while(jumsu) {
+							System.out.println("[[[[[성적관리메뉴]]]]]"); System.out.println("a. "); System.out.println("b. "); System.out.println("c."); System.out.println("d."); System.out.println("z.");
+							System.out.print("[원하는 메뉴를 입력해 주세요] : ");
+							char subSelect2 = inputChar.next().charAt(0);
 				
-									
-							case 3 :  //3번 메뉴로 들어옴. 성적관리
+							switch(subSelect2) { // case3-a-switch 시작
+							case 'A' :
+							case 'a' :								
+					System.out.println("a");						
+					break;
+					
+							case 'B' :
+							case 'b' :
+								System.out.println("b");
+								break;
 							
-											
-								}							
-						}
-						
-						
+							case 'C' :
+							case 'c' :
+								System.out.println("c.");
+								break;
+								
+							case 'D' :
+							case 'd' :
+								System.out.println("d.");
+								break;
+								
+							case 'Z' :
+							case 'z' :
+								System.out.println("메뉴가 종료 되었습니다.");
+								break;
+								
+							default :
+									System.out.println("값을다시 입력하세요");
+									break;
+									
+							}	 // case3-a-switch 종료 
+							
 					
 					
+				
+				}//case3 while 종료 
+				
 			}//메인 스위치 종료 
-			
-			
-			
+							
 			System.out.println("프로그램을 종료합니다.");
 			run = false;
 			break;	}//While문 종료 
