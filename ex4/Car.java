@@ -72,17 +72,17 @@ public class Car {
 			int km = 0;
 			boolean run =true;				
 			while(run) {
-				System.out.print("엑셀 or 브레이크 중 운전할 항목을 선택하세요 : ");	
+				System.out.print("1.엑셀 or 2.브레이크 중 운전할 항목을 선택하세요 : ");	
 				String select = input.next();
 								
-				if(select.equals("엑셀")) {
+				if(select.equals("1")) {
 					km += 10;
-					System.out.println("시속"+ km+ "km입니다.");
-				}
+					System.out.println("부아앙"+"시속"+ km+ "km입니다.");
+									}
 		
-				else if(select.equals("브레이크")) {
+				else if(select.equals("2")) {
 					km -= 10;
-					System.out.println("시속"+ km+ "km입니다.");	
+					System.out.println("브레이크"+"시속"+ km+ "km입니다.");	
 					if(km == 0) {
 						System.out.println("==멈춰있습니다.===");
 						break;
