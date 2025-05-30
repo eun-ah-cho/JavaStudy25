@@ -1,8 +1,8 @@
-package ex2;
+package ex1;
 
 import java.util.Scanner;
 
-public class WhileExam {
+public class AddTest1 {
 
 	public static void main(String[] args) {
 		// while 문은 조건식이 true일 때만 반복한다. 종료 원할시 false 처리를 한다. <무한반복용> 코드 작성시 사용 . 
