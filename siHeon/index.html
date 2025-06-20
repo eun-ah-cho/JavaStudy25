@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko"> 
+
+<head>
+	  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+	  <meta charset="UTF-8" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	  <title>🐝Sihoney🐝</title>
+	 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet">
+	
+	  <!-- jQuery CDN ( HTML 요소 제어를 쉽게 해주는 JavaScript 라이브러리) -->
+	  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	
+	<link rel="stylesheet" href="style.css"><!--style css파일로 따로 뺌  -->
+</head>
+
+
+
+<body>
+  <!-- 배경 영상과 버튼,텍스트 -->
+ 	<div class="hero">
+  <video id="mainVideo" autoplay muted playsinline loop></video>
+    <div class="scroll-indicator"><span>Scroll Down</span><!--마우스모양이미지 -->
+    <div class="mouse"><div class="scroll-wheel"></div> </div></div></div>
+    
+    <div class="nav">
+    <span id="welcome-msg" style="margin-right: 10px; font-weight: Normal; color : #ffffff "></span>
+     <button id="logout-btn" style="display: none;">Logout</button> <!-- 로그아웃 버튼 -->
+   	<button id="edit-btn" style="display: none;">회원정보수정</button>
+      <button data-type="login">Login</button>
+      <button data-type="signup">Join</button>
+    </div>
+    <div class="hero-content">
+      <h1 id="videoText"></h1>
+    </div>
+  </div>
+
+  <!-- 로그인 모달 창-->
+  <div class="modal" id="login-modal">
+    <div class="modal-content">
+      <h2>로그인</h2>
+      <input type="text" id="login-id" placeholder="아이디">
+      <input type="password" id="login-pw" placeholder="비밀번호">
+      <button id="login-btn">로그인</button>
+    </div>
+  </div>
+
+  <!-- 회원가입 모달 -->
+  <div class="modal" id="signup-modal">
+    <div class="modal-content">
+      <h2>회원가입</h2>
+      <input type="text" id="signup-name" placeholder="이름">
+      <input type="text" id="signup-id" placeholder="아이디">
+      <input type="password" id="signup-pw" placeholder="비밀번호">
+      <button id="signup-btn">회원가입</button>
+    </div>
+  </div>
+  <!-- 회원정보 수정 모달 -->
+<div class="modal" id="edit-modal">
+  <div class="modal-content">
+    <h2>회원정보 수정</h2>
+    <input type="text" id="edit-name" placeholder="새 이름">
+    <input type="password" id="edit-pw" placeholder="새 비밀번호">
+    <button id="edit-confirm-btn">수정하기</button>
+  </div>
+</div>
+  
+
+  <!-- 모달 닫기 버튼 -->
+<div class="close" style="display: none;">&times;</div>
+
+  <!-- 소개글 섹션 -->
+  <br><br><br><br><br>
+  <div class="content-section">
+    <h2>🌼“시헌이와의 추억을 코드로 남기는 엄마”🌼</h2>
+    <p> 태어난 지가 엊그제 같은데 벌써 잼민이가 된 초등학교 3학년 시헌이. 👩<br>
+   새로운 도전을 시작하는 엄마가 시헌이의 기록을 남기고자 성장 기록을 남기게 되었습니다.<br>
+    건강하게 맑고 예쁘게 자라길 바라며... </p>
+  </div>
+
+  <!-- 사진 썸네일 -->
+<div style="text-align: center; margin-bottom: 150px;">
+<h2 style="margin-bottom: 20px; font-family: 'Gowun Dodum', sans-serif; color: #444343;">시헌이의 사진목록</h2><br>
+
+ 
+    <div class="circle-links">
+      <a href="baby.html" target="_blank">
+        <div class="circle">
+          <img src="image/babysiheon.png" alt="아기 시헌">
+          <div class="caption">아기 시헌</div>
+        </div>
+      </a>
+      <a href="kinder.html" target="_blank">
+        <div class="circle">
+          <img src="image/yoosiheon.jpg" alt="유딩 시헌" class="yoosiheon">
+          <div class="caption">유딩 시헌</div>
+        </div>
+      </a>
+      <a href="elementary.html" target="_blank">
+        <div class="circle">
+          <img src="image/chosiheon.jpg" alt="초딩 시헌">
+          <div class="caption">초딩 시헌</div>
+
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- jQuery로 인터랙션 처리 -->
+<script>
+let currentLoginId = null;
+  $(document).ready(function () {
+    const videoSources = ['image/IMG_2527.mp4'];
+    const videoTexts = ['웃는 모습이 예쁜<br>나의 시헌이'];
+    let currentIndex = 0;
+
+    function playNextVideo() {
+      $('#mainVideo').attr('src', videoSources[currentIndex]);
+      $('#videoText').css('opacity', 0);
+      setTimeout(() => {
+        $('#videoText').html(videoTexts[currentIndex]).css('opacity', 1);
+      }, 500);
+    }
+
+    $('#mainVideo').on('ended', function () {
+      currentIndex = (currentIndex + 1) % videoSources.length;
+      playNextVideo();
+      this.play();
+    });
+
+    playNextVideo();
+    $('#mainVideo')[0].play();
+
+    // 로그인/회원가입 버튼 클릭 시 모달 열기
+    $('.nav button').click(function () {
+      const type = $(this).data('type');
+      $('#login-modal, #signup-modal').hide();
+      $(`#${type}-modal`).css('display', 'flex');
+      $('.close').show();
+    });
+
+    // 모달 닫기 버튼
+    $('.close').click(function () {
+      $('.modal').hide();
+      $('.close').hide();
+    });
+
+    // 회원가입 처리
+    $('#signup-btn').click(function () {
+      const name = $('#signup-name').val();
+      const id = $('#signup-id').val();
+      const pw = $('#signup-pw').val();
+
+      if (localStorage.getItem(id)) {
+        alert("이미 존재하는 아이디입니다. 다른 아이디를 입력해주세요.");
+        return;
+      }
+
+      if (id && pw && name) {
+        const userData = { name: name, pw: pw };
+        localStorage.setItem(id, JSON.stringify(userData));
+        alert(`${name}님 회원가입이 완료되었습니다!`);
+        $('.modal').hide();
+      } else {
+        alert("이름, 아이디, 비밀번호를 모두 입력하세요.");
+      }
+    });
+
+    // 로그인 처리
+    $('#login-btn').click(function () {
+      const id = $('#login-id').val();
+      const pw = $('#login-pw').val();
+      const storedData = localStorage.getItem(id);
+
+      if (storedData) {
+        const userData = JSON.parse(storedData);
+        if (pw === userData.pw) {
+        	 currentLoginId = id;
+          $('#welcome-msg').text(`${userData.name}님 환영합니다!`);
+          $('.modal').hide();
+
+          $('#logout-btn').show();
+          $('#edit-btn').show();
+          $('.nav button[data-type="login"]').hide();
+          $('.nav button[data-type="signup"]').hide();
+        } else {
+          alert("비밀번호가 올바르지 않습니다.");
+        }
+      } else {
+        alert("존재하지 않는 아이디입니다.");
+      }
+    });
+
+   
+    $('#logout-btn').click(function () {
+      $('#welcome-msg').text('');
+      $('#logout-btn').hide();
+      $('.nav button[data-type="login"]').show();
+      $('.nav button[data-type="signup"]').show();
+      alert("로그아웃 되었습니다.");
+    });
+  });
+//수정 버튼 클릭 시
+  $('#edit-btn').click(function () {
+    $('#edit-modal').css('display', 'flex');
+    $('.close').show();
+  });
+
+  // 수정하기 처리
+  $('#edit-confirm-btn').click(function () {
+    const id = $('#login-id').val(); // 로그인 중인 ID
+    const newName = $('#edit-name').val();
+    const newPw = $('#edit-pw').val();
+
+    const storedData = localStorage.getItem(id);
+    if (storedData) {
+      const userData = JSON.parse(storedData);
+      userData.name = newName || userData.name; // 입력 없으면 기존 값 유지
+      userData.pw = newPw || userData.pw;
+      localStorage.setItem(id, JSON.stringify(userData));
+      alert("회원정보가 수정되었습니다.");
+
+      $('#welcome-msg').text(`${userData.name}님 환영합니다!`);
+      $('#edit-modal').hide();
+      $('.close').hide();
+    } else {
+      alert("로그인된 사용자 정보가 없습니다.");
+    }
+  });
+  
+  
+  
+  
+</script>
+
+
+ <footer class="footer">
+  <div class="footer-links">
+  <p style="margin-top: 20px;">
+  </div>
+  <div class="footer-address">
+    [집] 경기도 안양시 동안구 평촌동<br>
+    [할머니네] 서울시 관악구 남현동<br>
+    [문의사항] 010-2012-7536
+  </div>
+  <div class="footer-copy">
+    COPYRIGHT ⓒ 2025 SihoneyMom ALL RIGHT RESERVED
+  </div>
+
+  <div class="footer-select">
+    <select>
+      <option selected>Family Sites</option>
+      <option value="https://github.com/eun-ah-cho">엄마Github</option>
+      <option value="https://www.naver.com">Naver</option>
+      <option value="https://www.kakao.com">Kakao</option>
+    </select>
+  </div>
+</footer>
+</body>
+</html>
